@@ -1,7 +1,7 @@
 name: Codacy Analysis
 
 on:
-  push:
+  push:  # only trigger on pushes for now
 
 jobs:
   codacy:
