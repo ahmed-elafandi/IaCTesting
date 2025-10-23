@@ -1,0 +1,21 @@
+name: Codacy Analysis
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  codacy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Run Codacy Analysis CLI
+        uses: codacy/codacy-analysis-cli-action@v4
+        with:
+          project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
+          upload: true
+          verbose: true
